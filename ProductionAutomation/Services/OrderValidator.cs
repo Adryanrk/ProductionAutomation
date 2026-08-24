@@ -11,6 +11,11 @@ public class OrderValidator
             return false;
         }
 
+        if (order.ProductName.All(char.IsDigit))
+        {
+            return false;
+        }
+
         if (order.Quantity <= 0)
         {
             return false;

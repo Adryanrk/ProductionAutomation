@@ -43,6 +43,15 @@ public class OrderService
 
     public List<Order> GetAllOrders()
     {
-        return _context.Orders.ToList();
+        try
+        {
+            return _context.Orders.ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Database error: {ex.Message}");
+            return new List<Order>();
+        }
     }
+
 }
