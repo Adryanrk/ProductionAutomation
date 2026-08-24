@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderSystem.Models;
 
-namespace OrderSystem.Data
+namespace OrderSystem.Data;
+
+public class AppDbContext : DbContext
 {
-    internal class AppDbContext
+    public DbSet<Order> Orders { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder.UseSqlite("Data Source=production.db");
     }
 }
