@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36414.22 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystem", "ProductionAutomation\OrderSystem.csproj", "{A285CB46-E3CF-4192-A35D-B87D002FB018}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTSystem", "OTSystem\OTSystem.csproj", "{A4E779BA-6BAA-4422-B091-3E28CBAA3316}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A285CB46-E3CF-4192-A35D-B87D002FB018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A285CB46-E3CF-4192-A35D-B87D002FB018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A285CB46-E3CF-4192-A35D-B87D002FB018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
