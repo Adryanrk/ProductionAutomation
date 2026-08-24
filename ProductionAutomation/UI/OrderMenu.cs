@@ -82,14 +82,22 @@ public class OrderMenu
 
         Console.Write("Quantity: ");
 
-        if (int.TryParse(Console.ReadLine(), out int quantity))
+        if (!int.TryParse(Console.ReadLine(), out int quantity))
         {
-            _orderService.CreateOrder(productName, quantity);
+            Console.WriteLine("Invalid quantity. Please enter a number.");
+            return;
+        }
+
+        bool success = _orderService.CreateOrder(productName, quantity);
+
+        if (success)
+        {
             Console.WriteLine("Order created successfully.");
         }
         else
         {
-            Console.WriteLine("Invalid quantity.");
+            Console.WriteLine("Order could not be created.");
+            Console.WriteLine("Make sure the product name is not empty and quantity is greater than 0.");
         }
     }
 }

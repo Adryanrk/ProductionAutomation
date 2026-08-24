@@ -12,7 +12,7 @@ public class OrderService
         _context = context;
     }
 
-    public void CreateOrder(string productName, int quantity)
+    public bool CreateOrder(string productName, int quantity)
     {
         var order = new Order
         {
@@ -20,8 +20,25 @@ public class OrderService
             Quantity = quantity
         };
 
-        _context.Orders.Add(order);
-        _context.SaveChanges();
+        var validator = new OrderValidator();
+
+        if (!validator.IsValid(order))
+        {
+            return false;
+        }
+
+        try
+        {
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Database error: {ex.Message}");
+            return false;
+        }
     }
 
     public List<Order> GetAllOrders()
