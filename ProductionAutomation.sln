@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystem", "ProductionAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTSystem", "OTSystem\OTSystem.csproj", "{A4E779BA-6BAA-4422-B091-3E28CBAA3316}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService", "IntegrationService\IntegrationService.csproj", "{37C38F8D-B3CA-4540-823C-B4A84CE10D3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4E779BA-6BAA-4422-B091-3E28CBAA3316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C38F8D-B3CA-4540-823C-B4A84CE10D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C38F8D-B3CA-4540-823C-B4A84CE10D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C38F8D-B3CA-4540-823C-B4A84CE10D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C38F8D-B3CA-4540-823C-B4A84CE10D3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
