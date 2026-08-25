@@ -1,10 +1,7 @@
-﻿namespace OTSystem
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
-    }
-}
+﻿using OTSystem.Services;
+using OTSystem.UI;
+
+var productionService = new ProductionService();
+var menu = new OTMenu(productionService);
+
+menu.Run();
