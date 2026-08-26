@@ -9,6 +9,9 @@ public class IntegrationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=production.db");
+        string databasePath = Path.GetFullPath(
+            Path.Combine(AppContext.BaseDirectory, "../../../../Database/production.db"));
+
+        optionsBuilder.UseSqlite($"Data Source={databasePath}");
     }
 }
