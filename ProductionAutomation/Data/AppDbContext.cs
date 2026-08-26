@@ -7,8 +7,13 @@ public class AppDbContext : DbContext
 {
     public DbSet<Order> Orders { get; set; }
 
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=production.db");
+        string databasePath = Path.GetFullPath(
+            Path.Combine(AppContext.BaseDirectory, "../../../../Database/production.db"));
+
+        optionsBuilder.UseSqlite($"Data Source={databasePath}");
     }
+
 }
