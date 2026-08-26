@@ -1,7 +1,6 @@
 ﻿using OTSystem.Services;
-using OTSystem.UI;
 
 var productionService = new ProductionService();
-var menu = new OTMenu(productionService);
+var server = new OTServer(productionService);
 
-menu.Run();
+server.Start();
