@@ -88,6 +88,11 @@ while (true)
                 integrationService.UpdateOrderStatus(
                     order.Id,
                     "Pending");
+
+                Console.WriteLine(
+                    $"Order {order.Id} will be retried later.");
+
+                Thread.Sleep(10000);
             }
         }
     }
