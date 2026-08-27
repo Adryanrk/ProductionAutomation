@@ -26,4 +26,28 @@ public class OrderIntegrationService
             return new List<IntegrationOrder>();
         }
     }
+
+    public bool UpdateOrderStatus(int orderId, string newStatus)
+    {
+        try
+        {
+            var order = _context.Orders.FirstOrDefault(o => o.Id == orderId);
+
+            if (order == null)
+            {
+                Console.WriteLine($"Order {orderId} could not be found.");
+                return false;
+            }
+
+            order.Status = newStatus;
+            _context.SaveChanges();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Database error while updating order status: {ex.Message}");
+            return false;
+        }
+    }
 }

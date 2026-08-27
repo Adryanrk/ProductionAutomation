@@ -35,6 +35,18 @@ else
         if (success)
         {
             Console.WriteLine($"Order {order.Id} sent successfully.");
+
+            bool statusUpdated =
+                integrationService.UpdateOrderStatus(order.Id, "Processing");
+
+            if (statusUpdated)
+            {
+                Console.WriteLine($"Order {order.Id} status updated to Processing.");
+            }
+            else
+            {
+                Console.WriteLine($"Could not update status for order {order.Id}.");
+            }
         }
         else
         {
