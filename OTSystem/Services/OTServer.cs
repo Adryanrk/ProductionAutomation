@@ -54,6 +54,11 @@ public class OTServer
                 Console.WriteLine("Order received from IntegrationService.");
 
                 _productionService.StartProduction(order);
+
+                string response = order.Status;
+                byte[] responseData = Encoding.UTF8.GetBytes(response);
+
+                stream.Write(responseData, 0, responseData.Length);
             }
         }
         catch (Exception ex)

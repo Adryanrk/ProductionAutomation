@@ -30,27 +30,59 @@ else
 
         Console.WriteLine("Sending order to OT system...");
 
-        bool success = otClient.SendOrder(order);
+        bool processingUpdated =
+            integrationService.UpdateOrderStatus(
+                order.Id,
+                "Processing");
 
-        if (success)
+        if (!processingUpdated)
         {
-            Console.WriteLine($"Order {order.Id} sent successfully.");
+            Console.WriteLine(
+                $"Could not update order {order.Id} to Processing.");
+
+            continue;
+        }
+
+        string? result = otClient.SendOrder(order);
+
+        if (result == "Completed")
+        {
+            Console.WriteLine(
+                $"Order {order.Id} completed successfully in OT system.");
 
             bool statusUpdated =
-                integrationService.UpdateOrderStatus(order.Id, "Processing");
+                integrationService.UpdateOrderStatus(
+                    order.Id,
+                    "Completed");
 
             if (statusUpdated)
             {
-                Console.WriteLine($"Order {order.Id} status updated to Processing.");
+                Console.WriteLine(
+                    $"Order {order.Id} status updated to Completed.");
             }
             else
             {
-                Console.WriteLine($"Could not update status for order {order.Id}.");
+                Console.WriteLine(
+                    $"Could not update status for order {order.Id}.");
             }
+        }
+        else if (result == "Failed")
+        {
+            Console.WriteLine(
+                $"Order {order.Id} failed in OT system.");
+
+            integrationService.UpdateOrderStatus(
+                order.Id,
+                "Failed");
         }
         else
         {
-            Console.WriteLine($"Failed to send order {order.Id}.");
+            Console.WriteLine(
+                $"Could not confirm production for order {order.Id}.");
+
+            integrationService.UpdateOrderStatus(
+                order.Id,
+                "Pending");
         }
 
         Console.WriteLine();
