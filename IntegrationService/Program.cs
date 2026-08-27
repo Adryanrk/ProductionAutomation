@@ -4,6 +4,7 @@ using IntegrationService.Services;
 using var context = new IntegrationDbContext();
 
 var integrationService = new OrderIntegrationService(context);
+var otClient = new OTClient();
 
 Console.WriteLine("============================");
 Console.WriteLine("    INTEGRATION SERVICE");
@@ -22,11 +23,24 @@ else
 {
     foreach (var order in pendingOrders)
     {
-        Console.WriteLine($"Order found:");
-        Console.WriteLine($"ID: {order.Id}");
+        Console.WriteLine($"Order found: {order.Id}");
         Console.WriteLine($"Product: {order.ProductName}");
         Console.WriteLine($"Quantity: {order.Quantity}");
-        Console.WriteLine($"Status: {order.Status}");
+        Console.WriteLine();
+
+        Console.WriteLine("Sending order to OT system...");
+
+        bool success = otClient.SendOrder(order);
+
+        if (success)
+        {
+            Console.WriteLine($"Order {order.Id} sent successfully.");
+        }
+        else
+        {
+            Console.WriteLine($"Failed to send order {order.Id}.");
+        }
+
         Console.WriteLine();
     }
 }
