@@ -75,7 +75,7 @@ public class OTMenu
 
         var order = new ProductionOrder
         {
-            OrderId = orderId,
+            Id = orderId,
             ProductName = productName,
             Quantity = quantity
         };
