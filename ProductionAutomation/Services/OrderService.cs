@@ -1,4 +1,5 @@
-﻿using OrderSystem.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderSystem.Data;
 using OrderSystem.Models;
 
 namespace OrderSystem.Services;
@@ -45,7 +46,9 @@ public class OrderService
     {
         try
         {
-            return _context.Orders.ToList();
+            return _context.Orders
+                .AsNoTracking()
+                .ToList();
         }
         catch (Exception ex)
         {
