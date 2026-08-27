@@ -9,7 +9,7 @@ public class ProductionService
         try
         {
             Console.WriteLine();
-            Console.WriteLine($"Starting production for order {order.OrderId}...");
+            Console.WriteLine($"Starting production for order {order.Id}...");
             Console.WriteLine($"Product: {order.ProductName}");
             Console.WriteLine($"Quantity: {order.Quantity}");
             Console.WriteLine();
@@ -25,7 +25,7 @@ public class ProductionService
             order.Status = "Completed";
 
             Console.WriteLine();
-            Console.WriteLine($"Order {order.OrderId} completed successfully.");
+            Console.WriteLine($"Order {order.Id} completed successfully.");
         }
         catch (Exception ex)
         {
