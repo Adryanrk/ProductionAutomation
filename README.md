@@ -101,16 +101,14 @@ The current TCP communication is not encrypted or authenticated. A production-re
 
 ```text
 ProductionAutomation/
-├── Database/
-├── IntegrationService/
-├── OrderSystem/
-├── OTSystem/
-├── ProductionAutomation.Tests/
+├── ProductionAutomation/
 ├── docs/
 │   └── images/
+├── .gitattributes
+├── .gitignore
 ├── ProductionAutomation.sln
-├── Rapport.md
-└── README.md
+├── README.md
+└── Rapport.md
 ```
 
 ## Documentation
